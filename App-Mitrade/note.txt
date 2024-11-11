@@ -18,3 +18,163 @@
 現在時間：document.querySelector("#container > footer > div > div.footer_wrap-right > span")
 屬性：innerText
 格式：本地時間 : YYYY年MM月DD日 hh:mm:ss
+
+===================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+// 投資清單
+fetch("https://app.mitrade.com/api/v2/cms/mixed-data?nationalityCode=TW&license=CIMA&account=normal", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7",
+    "deviceid": "",
+    "devicename": "Chrome V130.0.0.0",
+    "eagleeye-pappname": "1fb384qlq9c@056ac913dbee099",
+    "eagleeye-sessionid": "XvmR83XkdUyazjkg28sOrOepvh1R",
+    "eagleeye-traceid": "14628bb817313457612351014ee099",
+    "locale": "zh-TW",
+    "mode": "DEMO",
+    "priority": "u=1, i",
+    "remember-me-token": "3FD44EFBC6D344A6B58A05AF020C1CA4",
+    "sec-ch-ua": "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "session-token": "c96ccb04-726d-4169-8fc9-ddd29ea987b7",
+    "system": "web",
+    "webdeviceid": "0ebd78501cc00fba1880aa8aa4aa695c"
+  },
+  "referrer": "https://app.mitrade.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 取得資訊
+fetch("https://app.mitrade.com/api/v3/cms/strategy/period?symbol=BTCUSD", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7",
+    "deviceid": "",
+    "devicename": "Chrome V130.0.0.0",
+    "deviceuuid": "0ebd78501cc00fba1880aa8aa4aa695c",
+    "eagleeye-pappname": "1fb384qlq9c@056ac913dbee099",
+    "eagleeye-sessionid": "5Oma13v0d1C7Obp3Cbv725CdkXLa",
+    "eagleeye-traceid": "912be6c817313429147581220ee099",
+    "locale": "zh-TW",
+    "mode": "DEMO",
+    "priority": "u=1, i",
+    "remember-me-token": "3FD44EFBC6D344A6B58A05AF020C1CA4",
+    "sec-ch-ua": "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "session-token": "c96ccb04-726d-4169-8fc9-ddd29ea987b7",
+    "system": "web",
+    "webdeviceid": "0ebd78501cc00fba1880aa8aa4aa695c"
+  },
+  "referrer": "https://app.mitrade.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+fetch("https://app.mitrade.com/api/v3/cms/countries", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US,en;q=0.9,zh-TW;q=0.8,zh;q=0.7",
+    "deviceid": "",
+    "devicename": "Chrome V130.0.0.0",
+    "deviceuuid": "0ebd78501cc00fba1880aa8aa4aa695c",
+    "eagleeye-pappname": "1fb384qlq9c@056ac913dbee099",
+    "eagleeye-sessionid": "ppmXs3k0dyd99FcLs0s1dIg7e4mX",
+    "eagleeye-traceid": "e0e518fb17313436954491003ee099",
+    "locale": "zh-TW",
+    "mode": "DEMO",
+    "priority": "u=1, i",
+    "remember-me-token": "3FD44EFBC6D344A6B58A05AF020C1CA4",
+    "sec-ch-ua": "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "session-token": "c96ccb04-726d-4169-8fc9-ddd29ea987b7",
+    "system": "web",
+    "webdeviceid": "0ebd78501cc00fba1880aa8aa4aa695c"
+  },
+  "referrer": "https://app.mitrade.com/",
+  "referrerPolicy": "strict-origin-when-cross-origin",
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "include"
+});
