@@ -3,9 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JavaScript Video Player</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #video-container {
+      width: 600px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    #controls {
+      margin-top: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Button Styles */
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #007bff;
+      color: white;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    /* File Input Style */
+    #fileInput {
+      background-color: #28a745;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #fileInput:hover {
+      background-color: #218838;
+    }
+
+    /* Custom Button Styles */
+    #speed {
+      background-color: #6c757d;
+    }
+
+    #speed:hover {
+      background-color: #5a6268;
+    }
+  </style>
 </head>
 <body>
-  
+  <div id="video-container">
+    <video id="myVideo" controls>
+      <source id="videoSource" src="your-video.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div id="controls">
+      <button id="playPause">Play/Pause</button>
+      <button id="stop">Stop</button>
+      <button id="muteUnmute">Mute/Unmute</button>
+      <button id="volUp">Volume +</button>
+      <button id="volDown">Volume -</button>
+      <button id="fullScreen">Full Screen</button>
+      <button id="speed">Speed: 1x</button>
+      <input type="file" id="fileInput" accept="video/*">
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
