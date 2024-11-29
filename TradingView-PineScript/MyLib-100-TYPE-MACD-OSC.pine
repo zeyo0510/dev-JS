@@ -1,0 +1,15 @@
+
+
+
+
+
+// @function 取得訊號柱(Signal Histogram)
+export method _getOSC_(_MACD_ this) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float dif = this._getDIF_()
+    float dea = this._getDEA_()
+    //////////////////////////////////////////////////
+    retValue := _Calc_OSC_(dif, dea)
+    //////////////////////////////////////////////////
+    retValue

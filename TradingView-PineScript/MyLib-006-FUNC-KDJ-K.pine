@@ -1,0 +1,13 @@
+
+
+
+
+
+// @function          取得快線(Fast Line)
+// @param    _length_ 計算天期
+export _Calc_K_(float _rsv_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Math_Average_(_rsv_, _length_)
+    //////////////////////////////////////////////////
+    retValue

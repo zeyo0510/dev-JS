@@ -1,0 +1,15 @@
+
+
+
+
+
+// @function 取得交叉(Cross)
+export method _getCross_(_KDJ_ this) =>
+    _Cross_ retValue = _Cross_._None_
+    //////////////////////////////////////////////////
+    if ( (this._getK_()[0] > this._getD_()[0]) and (this._getK_()[1] < this._getD_()[1]) )
+        retValue := _Cross_._Golden_
+    if ( (this._getK_()[0] < this._getD_()[0]) and (this._getK_()[1] > this._getD_()[1]) )
+        retValue := _Cross_._Death_
+    //////////////////////////////////////////////////
+    retValue

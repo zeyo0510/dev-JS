@@ -1,0 +1,13 @@
+
+
+
+
+
+// @enum           交叉(Cross)
+// @field _None_   無
+// @field _Golden_ 黃金交叉
+// @field _Death_  死亡交叉
+export enum _Cross_
+    _None_   = "None"
+    _Golden_ = "Golden"
+    _Death_  = "Death"

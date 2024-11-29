@@ -1,0 +1,15 @@
+
+
+
+
+
+// @function 取得交叉(Cross)
+export method _getCross_(_MACD_ this) =>
+    _Cross_ retValue = _Cross_._None_
+    //////////////////////////////////////////////////
+    if (math.sign(this._getOSC_()[0]) > math.sign(this._getOSC_()[1]))
+        retValue := _Cross_._Golden_
+    if (math.sign(this._getOSC_()[0]) < math.sign(this._getOSC_()[1]))
+        retValue := _Cross_._Death_
+    //////////////////////////////////////////////////
+    retValue

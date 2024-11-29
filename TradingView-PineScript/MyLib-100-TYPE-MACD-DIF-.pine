@@ -1,0 +1,12 @@
+
+
+
+
+
+// @function 取得快線(Fast Line)
+export method _getDIF_(_MACD_ this) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Calc_DIF_(this._source_, this._fast_length_, this._slow_length_)
+    //////////////////////////////////////////////////
+    retValue

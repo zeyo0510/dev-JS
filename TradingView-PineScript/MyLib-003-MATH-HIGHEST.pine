@@ -1,0 +1,13 @@
+
+
+
+
+
+export _Math_Highest(float _value_, int _length_) =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    for offset = 0 to _length_ - 1
+        if (nz(_value_[offset]) > retValue)
+            retValue := nz(_value_[offset])
+    ////////////////////////////////////////////////////////////
+    retValue

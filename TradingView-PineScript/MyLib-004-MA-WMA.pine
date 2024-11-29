@@ -1,0 +1,21 @@
+
+
+
+
+
+// @function          取得加權移動平均(Weighted Moving Average)
+// @param    _source_ 系列價格
+// @param    _length_ 計算天期
+export _Calc_WMA_(float _source_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float numerator   = 00.00
+    float denominator = 00.00
+    //////////////////////////////////////////////////
+    for offset = 0 to _length_ - 1
+        numerator   := numerator   + ( nz(_source_[offset]) * (_length_ - offset) )
+        denominator := denominator + (                        (_length_ - offset) )
+    //////////////////////////////////////////////////
+    retValue := numerator / denominator
+    //////////////////////////////////////////////////
+    retValue

@@ -1,0 +1,17 @@
+
+
+
+
+
+export _Calc_DM_(_Plus_Minus_ _plus_minus_) =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    float upMove =    H[0]  - nz(H[1])
+    float dnMove = nz(L[1]) -    L[0]
+    ////////////////////////////////////////////////////////////
+    if (_plus_minus_ == _Plus_Minus_._Plus_)
+        retValue := ((upMove > dnMove) and (upMove > 0)) ? upMove : 0
+    if (_plus_minus_ == _Plus_Minus_._Minus_)
+        retValue := ((dnMove > upMove) and (dnMove > 0)) ? dnMove : 0
+    ////////////////////////////////////////////////////////////
+    retValue

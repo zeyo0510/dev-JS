@@ -1,0 +1,14 @@
+
+
+
+
+
+// @function 波動值(True Range)
+export _Calc_TR_() =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    retValue := _Math_Maximum_(retValue,                 H[0] -    L[0]  )
+    retValue := _Math_Maximum_(retValue, _Math_Absolute_(H[0] - nz(C[1])))
+    retValue := _Math_Maximum_(retValue, _Math_Absolute_(L[0] - nz(C[1])))
+    ////////////////////////////////////////////////////////////
+    retValue

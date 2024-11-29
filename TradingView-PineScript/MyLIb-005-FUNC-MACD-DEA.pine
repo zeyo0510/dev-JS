@@ -1,0 +1,12 @@
+
+
+
+
+
+// @function 取得慢線(Slow Line)
+export _Calc_DEA_(float _dif_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Calc_EMA_(_dif_, 2, _length_)
+    //////////////////////////////////////////////////
+    retValue

@@ -1,0 +1,9 @@
+
+
+
+
+
+// @type (Directional Movement Index)
+export type _DMI_
+    int _adx_smoothing_ = 14
+    int _di_length_     = 14

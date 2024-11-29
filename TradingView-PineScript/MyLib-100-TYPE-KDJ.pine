@@ -1,0 +1,16 @@
+
+
+
+
+
+// @type                  隨機指標(Random Index)
+// @field _source_        系列價格
+// @field _signal_length_ 訊號天期
+// @field _fast_length_   快線天期
+// @field _slow_length_   慢線天期
+export type _KDJ_
+    float _source_ = close
+    //////////////////////////////////////////////////
+    int _signal_length_ = 09
+    int _fast_length_   = 03
+    int _slow_length_   = 03

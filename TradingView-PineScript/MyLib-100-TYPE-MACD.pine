@@ -1,0 +1,16 @@
+
+
+
+
+
+// @type                  平滑異同移動平均(Moving Average Convergence / Divergence)
+// @field _source_        系列價格
+// @field _fast_length_   快線天期
+// @field _slow_length_   慢線天期
+// @field _signal_length_ 訊號天期
+export type _MACD_
+    float _source_ = close
+    //////////////////////////////////////////////////
+    int _fast_length_   = 12
+    int _slow_length_   = 26
+    int _signal_length_ = 09

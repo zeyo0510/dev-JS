@@ -1,0 +1,14 @@
+
+
+
+
+
+// @function (Directional Index)
+export _Calc_DX_(float _plusDI_, float _minusDI_) =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    retValue := retValue + _Math_Absolute_(_plusDI_ - _minusDI_)
+    retValue := retValue / _Math_Absolute_(_plusDI_ + _minusDI_)
+    retValue := retValue * 100
+    ////////////////////////////////////////////////////////////
+    retValue
