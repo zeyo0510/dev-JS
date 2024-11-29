@@ -1,0 +1,91 @@
+//////////////////////////////////////////////////
+//@version=6
+//////////////////////////////////////////////////
+indicator("Demo-KDJ")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 匯入
+//////////////////////////////////////////////////
+import zeyo0510/MyLib/1
+
+
+
+
+
+//////////////////////////////////////////////////
+// 參數
+//////////////////////////////////////////////////
+int arg1 = input.int(defval = 09, title = "Signal Length")
+int arg2 = input.int(defval = 03, title = "Fast Length"  )
+int arg3 = input.int(defval = 03, title = "Slow Length"  )
+
+
+
+
+
+//////////////////////////////////////////////////
+// 中線
+//////////////////////////////////////////////////
+float  middle_line       = 50
+string middle_line_title = "中線"
+color  middle_line_color = color.gray
+//////////////////////////////////////////////////
+hline(price = middle_line, title = middle_line_title, color = middle_line_color)
+
+
+
+
+
+//////////////////////////////////////////////////
+// 上下線
+//////////////////////////////////////////////////
+float  cap         = 80
+string cap_title   = "Cap"
+color  cap_color   = color.gray
+float  floor       = 20
+string floor_title = "Floor"
+color  floor_color = color.gray
+//////////////////////////////////////////////////
+h0 = hline(price = cap  , title = cap_title  , color = cap_color  )
+h1 = hline(price = floor, title = floor_title, color = floor_color)
+//////////////////////////////////////////////////
+fill(h0, h1, color=color.rgb(33, 150, 243, 90), title = "Background")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 指標：KDJ(09,03,03)
+//////////////////////////////////////////////////
+MyLib._KDJ_ kdj090303 = na
+//////////////////////////////////////////////////
+float  kdj090303_k       = float(na)
+string kdj090303_k_title = string(na)
+color  kdj090303_k_color = color(na)
+float  kdj090303_d       = float(na)
+string kdj090303_d_title = string(na)
+color  kdj090303_d_color = color(na)
+float  kdj090303_j       = float(na)
+string kdj090303_j_title = string(na)
+color  kdj090303_j_color = color(na)
+//////////////////////////////////////////////////
+kdj090303 := MyLib._KDJ_.new(_signal_length_ = arg1, _fast_length_ = arg2, _slow_length_ = arg3)
+//////////////////////////////////////////////////
+kdj090303_k       := kdj090303._getK_()
+kdj090303_k_title := "K"
+kdj090303_k_color := color.red
+kdj090303_d       := kdj090303._getD_()
+kdj090303_d_title := "D"
+kdj090303_d_color := color.green
+kdj090303_j       := kdj090303._getJ_()
+kdj090303_j_title := "J"
+kdj090303_j_color := color.blue
+//////////////////////////////////////////////////
+plot(series = kdj090303_k, title = kdj090303_k_title, style = plot.style_line, color = kdj090303_k_color)
+plot(series = kdj090303_d, title = kdj090303_d_title, style = plot.style_line, color = kdj090303_d_color)
+plot(series = kdj090303_j, title = kdj090303_j_title, style = plot.style_line, color = kdj090303_j_color)

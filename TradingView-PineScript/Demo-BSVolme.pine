@@ -1,0 +1,37 @@
+//////////////////////////////////////////////////
+//@version=6
+//////////////////////////////////////////////////
+indicator("Demo-Buy/Sell Volume")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 匯入
+//////////////////////////////////////////////////
+import zeyo0510/MyLib/1
+
+
+
+
+
+//////////////////////////////////////////////////
+// 指標：買賣量
+//////////////////////////////////////////////////
+float  buy_volume        = float(na)
+string buy_volume_title  = string(na)
+color  buy_volume_color  = color(na)
+float  sell_volume       = float(na)
+string sell_volume_title = string(na)
+color  sell_volume_color = color(na)
+//////////////////////////////////////////////////
+buy_volume        := MyLib.BuyVolume()
+buy_volume_title  := "Buy Volume"
+buy_volume_color  := color.rgb(000, 255, 000, 000)
+sell_volume       := MyLib.SellVolume()
+sell_volume_title := "Sell Volume"
+sell_volume_color := color.rgb(255, 000, 000, 000)
+//////////////////////////////////////////////////
+plot(series = buy_volume , title = buy_volume_title , style = plot.style_columns, color = buy_volume_color )
+plot(series = sell_volume, title = sell_volume_title, style = plot.style_columns, color = sell_volume_color)

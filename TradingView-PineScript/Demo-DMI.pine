@@ -1,0 +1,58 @@
+//////////////////////////////////////////////////
+//@version=6
+//////////////////////////////////////////////////
+indicator("Demo-DMI")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 匯入
+//////////////////////////////////////////////////
+import zeyo0510/MyLib/1
+
+
+
+
+
+//////////////////////////////////////////////////
+// 參數
+//////////////////////////////////////////////////
+int arg1 = input.int(defval = 14, title = "ADX Smoothing")
+int arg2 = input.int(defval = 14, title = "DI Length"    )
+
+
+
+
+
+//////////////////////////////////////////////////
+// 指標：DMI(14,14)
+//////////////////////////////////////////////////
+MyLib._DMI_ dmi1414 = na
+//////////////////////////////////////////////////
+float  dmi1414_plusDI        = float(na)
+string dmi1414_plusDI_title  = string(na)
+color  dmi1414_plusDI_color  = color(na)
+float  dmi1414_minusDI       = float(na)
+string dmi1414_minusDI_title = string(na)
+color  dmi1414_minusDI_color = color(na)
+float  dmi1414_adx           = float(na)
+string dmi1414_adx_title     = string(na)
+color  dmi1414_adx_color     = color(na)
+//////////////////////////////////////////////////
+dmi1414 := MyLib._DMI_.new(_adx_smoothing_ = arg1, _di_length_ = arg2)
+//////////////////////////////////////////////////
+dmi1414_plusDI        := dmi1414._getPlusDI_()
+dmi1414_plusDI_title  := "+DI"
+dmi1414_plusDI_color  := color.navy
+dmi1414_minusDI       := dmi1414._getMinusDI_()
+dmi1414_minusDI_title := "-DI"
+dmi1414_minusDI_color := color.red
+dmi1414_adx           := dmi1414._getADX_()
+dmi1414_adx_title     := "ADX"
+dmi1414_adx_color     := color.green
+//////////////////////////////////////////////////
+plot(series = dmi1414_plusDI , title = dmi1414_plusDI_title , color = dmi1414_plusDI_color )
+plot(series = dmi1414_minusDI, title = dmi1414_minusDI_title, color = dmi1414_minusDI_color)
+plot(series = dmi1414_adx    , title = dmi1414_adx_title    , color = dmi1414_adx_color    )

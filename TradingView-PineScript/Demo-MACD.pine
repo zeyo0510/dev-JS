@@ -1,0 +1,62 @@
+//////////////////////////////////////////////////
+//@version=6
+//////////////////////////////////////////////////
+indicator("Demo-MACD")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 匯入
+//////////////////////////////////////////////////
+import zeyo0510/MyLib/1
+
+
+
+
+
+//////////////////////////////////////////////////
+// 參數
+//////////////////////////////////////////////////
+int arg1 = input.int(defval = 12, title = "Fast Length"  )
+int arg2 = input.int(defval = 26, title = "Slow Length"  )
+int arg3 = input.int(defval = 09, title = "Signal Length")
+
+
+
+
+
+//////////////////////////////////////////////////
+// 指標：MACD(12,26,09)
+//////////////////////////////////////////////////
+MyLib._MACD_ macd122609 = na
+//////////////////////////////////////////////////
+float  macd122609_dif       = float(na)
+string macd122609_dif_title = string(na)
+color  macd122609_dif_color = color(na)
+float  macd122609_dea       = float(na)
+string macd122609_dea_title = string(na)
+color  macd122609_dea_color = color(na)
+float  macd122609_osc       = float(na)
+string macd122609_osc_title = string(na)
+color  macd122609_osc_color = color(na)
+//////////////////////////////////////////////////
+macd122609 := MyLib._MACD_.new(_fast_length_ = arg1, _slow_length_ = arg2, _signal_length_ = arg3)
+//////////////////////////////////////////////////
+macd122609_dif       := macd122609._getDIF_()
+macd122609_dif_title := "DIF"
+macd122609_dif_color := color.blue
+macd122609_dea       := macd122609._getDEA_()
+macd122609_dea_title := "DEA"
+macd122609_dea_color := color.orange
+macd122609_osc       := macd122609._getOSC_()
+macd122609_osc_title := "OSC"
+macd122609_osc_color := (macd122609_osc > 0)                                             ? color.rgb(000, 255, 000, 000) : macd122609_osc_color
+macd122609_osc_color := (macd122609_osc > 0) and (macd122609_osc[0] > macd122609_osc[1]) ? color.rgb(000, 255, 000, 050) : macd122609_osc_color
+macd122609_osc_color := (macd122609_osc < 0)                                             ? color.rgb(255, 000, 000, 000) : macd122609_osc_color
+macd122609_osc_color := (macd122609_osc < 0) and (macd122609_osc[0] < macd122609_osc[1]) ? color.rgb(255, 000, 000, 050) : macd122609_osc_color
+//////////////////////////////////////////////////
+plot(series = macd122609_dif, title = macd122609_dif_title, style = plot.style_line   , color = macd122609_dif_color)
+plot(series = macd122609_dea, title = macd122609_dea_title, style = plot.style_line   , color = macd122609_dea_color)
+plot(series = macd122609_osc, title = macd122609_osc_title, style = plot.style_columns, color = macd122609_osc_color)
