@@ -44,16 +44,16 @@ hline(price = middle_line, title = middle_line_title, color = middle_line_color)
 // 上下線
 //////////////////////////////////////////////////
 float  cap         = 80
-string cap_title   = "Cap"
+string cap_title   = "上線"
 color  cap_color   = color.gray
 float  floor       = 20
-string floor_title = "Floor"
+string floor_title = "下線"
 color  floor_color = color.gray
 //////////////////////////////////////////////////
 h0 = hline(price = cap  , title = cap_title  , color = cap_color  )
 h1 = hline(price = floor, title = floor_title, color = floor_color)
 //////////////////////////////////////////////////
-fill(h0, h1, color=color.rgb(33, 150, 243, 90), title = "Background")
+fill(h0, h1, color = color.rgb(33, 150, 243, 90), title = "Background")
 
 
 
