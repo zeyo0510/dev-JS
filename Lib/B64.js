@@ -1,10 +1,8 @@
-var Base64 = {
- 
-  // private property
-  _TABLE : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
-
-  // public method for encoding
-  encode: function(data)
+class B64
+{
+  static #TABLE = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+  /************************************************/
+  static encode(data)
   {
     data = Base64._utf8_encode(data);
     /************************************************/
@@ -27,13 +25,14 @@ var Base64 = {
       if (isNaN(chr3)) { enc4 = 64; }
       /************************************************/
       retValue +=
-        this._TABLE.charAt(enc1) + this._TABLE.charAt(enc2) +
-        this._TABLE.charAt(enc3) + this._TABLE.charAt(enc4);
+        B64.#TABLE.charAt(enc1) + B64.#TABLE.charAt(enc2) +
+        B64.#TABLE.charAt(enc3) + B64.#TABLE.charAt(enc4);
     }
     /************************************************/
     return retValue;
-  },
-  decode: function(data)
+  }
+  /************************************************/
+  static decode(data)
   {
     data = data.replace(/[^A-Za-z0-9\+\/\=]/g, "");
     /************************************************/
@@ -43,25 +42,26 @@ var Base64 = {
     /************************************************/
     while (i < data.length)
     {
-      let enc1 = this._TABLE.indexOf(data.charAt(i++));
-      let enc2 = this._TABLE.indexOf(data.charAt(i++));
-      let enc3 = this._TABLE.indexOf(data.charAt(i++));
-      let enc4 = this._TABLE.indexOf(data.charAt(i++));
+      let enc1 = B64.#TABLE.indexOf(data.charAt(i++));
+      let enc2 = B64.#TABLE.indexOf(data.charAt(i++));
+      let enc3 = B64.#TABLE.indexOf(data.charAt(i++));
+      let enc4 = B64.#TABLE.indexOf(data.charAt(i++));
       /************************************************/
       let chr1 = ((enc1     ) << 2) | (enc2 >> 4);
       let chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
       let chr3 = ((enc3 &  3) << 6) | (enc4     );
       /************************************************/
-                        retValue = retValue + String.fromCharCode(chr1);
-      if (enc3 != 64) { retValue = retValue + String.fromCharCode(chr2); }
-      if (enc4 != 64) { retValue = retValue + String.fromCharCode(chr3); }
+                        retValue += String.fromCharCode(chr1);
+      if (enc3 != 64) { retValue += String.fromCharCode(chr2); }
+      if (enc4 != 64) { retValue += String.fromCharCode(chr3); }
     }
     /************************************************/
     retValue = Base64._utf8_decode(retValue);
     /************************************************/
     return retValue;
-  },
-  _utf8_encode: function(data)
+  }
+  /************************************************/
+  static #_utf8_encode(data)
   {
     data = data.replace(/\r\n/g,"\n");
     /************************************************/
@@ -86,8 +86,9 @@ var Base64 = {
       }
     }
     return retValue;
-  },
-  _utf8_decode: function(data)
+  }
+  /************************************************/
+  static #_utf8_decode(data)
   {
     var retValue = "";
     var i = 0;
@@ -119,3 +120,5 @@ var Base64 = {
     return retValue;
   }
 }
+/************************************************/
+globalThis.B64 = B64;
