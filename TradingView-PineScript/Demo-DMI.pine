@@ -31,28 +31,28 @@ int arg2 = input.int(defval = 14, title = "DI Length"    )
 //////////////////////////////////////////////////
 MyLib._DMI_ dmi1414 = na
 //////////////////////////////////////////////////
-float  dmi1414_plusDI        = float(na)
-string dmi1414_plusDI_title  = string(na)
-color  dmi1414_plusDI_color  = color(na)
-float  dmi1414_minusDI       = float(na)
-string dmi1414_minusDI_title = string(na)
-color  dmi1414_minusDI_color = color(na)
-float  dmi1414_adx           = float(na)
-string dmi1414_adx_title     = string(na)
-color  dmi1414_adx_color     = color(na)
+float  dmi1414_positiveDI       = float(na)
+string dmi1414_positiveDI_title = string(na)
+color  dmi1414_positiveDI_color = color(na)
+float  dmi1414_negativeDI       = float(na)
+string dmi1414_negativeDI_title = string(na)
+color  dmi1414_negativeDI_color = color(na)
+float  dmi1414_adx              = float(na)
+string dmi1414_adx_title        = string(na)
+color  dmi1414_adx_color        = color(na)
 //////////////////////////////////////////////////
 dmi1414 := MyLib._DMI_.new(_adx_smoothing_ = arg1, _di_length_ = arg2)
 //////////////////////////////////////////////////
-dmi1414_plusDI        := dmi1414._getPlusDI_()
-dmi1414_plusDI_title  := "+DI"
-dmi1414_plusDI_color  := color.navy
-dmi1414_minusDI       := dmi1414._getMinusDI_()
-dmi1414_minusDI_title := "-DI"
-dmi1414_minusDI_color := color.red
-dmi1414_adx           := dmi1414._getADX_()
-dmi1414_adx_title     := "ADX"
-dmi1414_adx_color     := color.green
+dmi1414_positiveDI        := dmi1414._getPositiveDI_()
+dmi1414_positiveDI_title  := "+DI"
+dmi1414_positiveDI_color  := color.navy
+dmi1414_negativeDI        := dmi1414._getNegativeDI_()
+dmi1414_negativeDI_title  := "-DI"
+dmi1414_negativeDI_color  := color.red
+dmi1414_adx               := dmi1414._getADX_()
+dmi1414_adx_title         := "ADX"
+dmi1414_adx_color         := color.green
 //////////////////////////////////////////////////
-plot(series = dmi1414_plusDI , title = dmi1414_plusDI_title , color = dmi1414_plusDI_color )
-plot(series = dmi1414_minusDI, title = dmi1414_minusDI_title, color = dmi1414_minusDI_color)
-plot(series = dmi1414_adx    , title = dmi1414_adx_title    , color = dmi1414_adx_color    )
+plot(series = dmi1414_positiveDI, title = dmi1414_positiveDI_title, color = dmi1414_positiveDI_color)
+plot(series = dmi1414_negativeDI, title = dmi1414_negativeDI_title, color = dmi1414_negativeDI_color)
+plot(series = dmi1414_adx       , title = dmi1414_adx_title       , color = dmi1414_adx_color       )
