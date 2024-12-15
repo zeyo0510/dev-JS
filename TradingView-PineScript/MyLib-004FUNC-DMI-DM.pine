@@ -3,15 +3,15 @@
 
 
 
-export _Calc_DM_(_Plus_Minus_ _plus_minus_) =>
+export _Calc_DM_(_Positive_Negative_ _positive_negative_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
     float upMove =    H[0]  - nz(H[1])
     float dnMove = nz(L[1]) -    L[0]
     ////////////////////////////////////////////////////////////
-    if (_plus_minus_ == _Plus_Minus_._Plus_)
+    if (_positive_negative_ == _Positive_Negative_._Positive_)
         retValue := ((upMove > dnMove) and (upMove > 00.00)) ? upMove : 00.00
-    if (_plus_minus_ == _Plus_Minus_._Minus_)
+    if (_positive_negative_ == _Positive_Negative_._Negative_)
         retValue := ((dnMove > upMove) and (dnMove > 00.00)) ? dnMove : 00.00
     ////////////////////////////////////////////////////////////
     retValue
