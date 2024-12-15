@@ -6,10 +6,10 @@
 export method _getADX_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    float plusDI  = this._getPlusDI_()
-    float minusDI = this._getMinusDI_()
+    float positiveDI = this._getPositiveDI_()
+    float negativeDI = this._getNegativeDI_()
     ////////////////////////////////////////////////////////////
-    float dx = _Calc_DX_(plusDI, minusDI)
+    float dx = _Calc_DX_(positiveDI, negativeDI)
     ////////////////////////////////////////////////////////////
     retValue := _Calc_DX_AVG_(dx, this._adx_smoothing_)
     ////////////////////////////////////////////////////////////

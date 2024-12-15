@@ -3,7 +3,9 @@
 
 
 
-// @type (Directional Movement Index)
+// @type                  XXX(Directional Movement Index)
+// @field _adx_smoothing_ XXX
+// @field _di_length_     XXX
 export type _DMI_
     int _adx_smoothing_ = 14
     int _di_length_     = 14

@@ -38,9 +38,9 @@ export enum _Cross_
 
 
 
-export enum _Plus_Minus_
-    _Plus_  = "+"
-    _Minus_ = "-"
+export enum _Positive_Negative_
+    _Positive_  = "+"
+    _Negative_ = "-"
 
 
 
@@ -48,9 +48,7 @@ export enum _Plus_Minus_
 
 // @function 絕對值
 export _Math_Absolute_(float _value_) =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    retValue := _value_
+    float retValue = _value_
     ////////////////////////////////////////////////////////////
     if (retValue < 00.00)
         retValue := retValue * -1
@@ -102,11 +100,9 @@ export _Math_Lowest(float _value_, int _length_) =>
 
 // @function 最大值
 export _Math_Maximum_(float _value1_, float _value2_) =>
-    float retValue = 00.00
+    float retValue = _value1_
     ////////////////////////////////////////////////////////////
-    retValue := _value1_
-    ////////////////////////////////////////////////////////////
-    if (_value2_ > _value1_)
+    if (_value2_ > retValue)
         retValue := _value2_
     ////////////////////////////////////////////////////////////
     retValue
@@ -117,11 +113,9 @@ export _Math_Maximum_(float _value1_, float _value2_) =>
 
 // @function 最小值
 export _Math_Minimum_(float _value1_, float _value2_) =>
-    float retValue = 00.00
+    float retValue = _value1_
     ////////////////////////////////////////////////////////////
-    retValue := _value1_
-    ////////////////////////////////////////////////////////////
-    if (_value2_ < _value1_)
+    if (_value2_ < retValue)
         retValue := _value2_
     ////////////////////////////////////////////////////////////
     retValue
@@ -129,6 +123,16 @@ export _Math_Minimum_(float _value1_, float _value2_) =>
 
 
 
+
+////////////////////////////////////////////////////////////
+//        Smoothed +DM       
+// +DI = (------------) * 100
+//        Smoothed  TR       
+////////////////////////////////////////////////////////////
+//        Smoothed -DM       
+// -DI = (------------) * 100
+//        Smoothed  TR       
+////////////////////////////////////////////////////////////
 
 export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
@@ -150,9 +154,9 @@ export _Calc_DM_(_Plus_Minus_ _plus_minus_) =>
     float dnMove = nz(L[1]) -    L[0]
     ////////////////////////////////////////////////////////////
     if (_plus_minus_ == _Plus_Minus_._Plus_)
-        retValue := ((upMove > dnMove) and (upMove > 0)) ? upMove : 0
+        retValue := ((upMove > dnMove) and (upMove > 00.00)) ? upMove : 00.00
     if (_plus_minus_ == _Plus_Minus_._Minus_)
-        retValue := ((dnMove > upMove) and (dnMove > 0)) ? dnMove : 0
+        retValue := ((dnMove > upMove) and (dnMove > 00.00)) ? dnMove : 00.00
     ////////////////////////////////////////////////////////////
     retValue
 
@@ -171,6 +175,12 @@ export _Calc_DM_AVG_(float _dm_, int _length_) =>
 
 
 
+
+////////////////////////////////////////////////////////////
+//       | +DI - -DI |       
+// DX = (-------------) * 100
+//       | +DI + -DI |       
+////////////////////////////////////////////////////////////
 
 // @function (Directional Index)
 export _Calc_DX_(float _plusDI_, float _minusDI_) =>
@@ -198,6 +208,14 @@ export _Calc_DX_AVG_(float _dx_, int _length_) =>
 
 
 
+
+////////////////////////////////////////////////////////////
+// TR = MAX( [1], [2], [3] )
+////////////////////////////////////////////////////////////
+// [1] =   Current High - Current Low     
+// [2] = | Current High - Previous Close |
+// [3] = | Current Low  - Previous Close |
+////////////////////////////////////////////////////////////
 
 // @function 波動值(True Range)
 export _Calc_TR_() =>
@@ -386,8 +404,6 @@ export _Calc_OSC_(float _dif_, float _dea_) =>
 export BuyVolume() =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    if (H == L)
-        retValue := 00.00
     if (H != L)
         retValue := +(V * (C - L) / (H - L))
     ////////////////////////////////////////////////////////////
@@ -401,8 +417,6 @@ export BuyVolume() =>
 export SellVolume() =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    if (H == L)
-        retValue := 00.00
     if (H != L)
         retValue := -(V * (H - C) / (H - L))
     ////////////////////////////////////////////////////////////
@@ -412,7 +426,9 @@ export SellVolume() =>
 
 
 
-// @type (Directional Movement Index)
+// @type                  XXX(Directional Movement Index)
+// @field _adx_smoothing_ XXX
+// @field _di_length_     XXX
 export type _DMI_
     int _adx_smoothing_ = 14
     int _di_length_     = 14
@@ -421,11 +437,11 @@ export type _DMI_
 
 
 
-export method _getPlusDI_(_DMI_ this) =>
+export method _getPositiveDI_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    float dm = _Calc_DM_(_Plus_Minus_._Plus_)
-    float tr = _Calc_TR_(                   )
+    float dm = _Calc_DM_(_Positive_Negative_._Positive_)
+    float tr = _Calc_TR_(                              )
     ////////////////////////////////////////////////////////////
     float adm = _Calc_DM_AVG_(dm, this._di_length_)
     float atr = _Calc_TR_AVG_(tr, this._di_length_)
@@ -438,11 +454,11 @@ export method _getPlusDI_(_DMI_ this) =>
 
 
 
-export method _getMinusDI_(_DMI_ this) =>
+export method _getNegativeDI_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    float dm = _Calc_DM_(_Plus_Minus_._Minus_)
-    float tr = _Calc_TR_(                    )
+    float dm = _Calc_DM_(_Positive_Negative_._Negative_)
+    float tr = _Calc_TR_(                              )
     ////////////////////////////////////////////////////////////
     float adm = _Calc_DM_AVG_(dm, this._di_length_)
     float atr = _Calc_TR_AVG_(tr, this._di_length_)
@@ -458,10 +474,10 @@ export method _getMinusDI_(_DMI_ this) =>
 export method _getADX_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    float plusDI  = this._getPlusDI_()
-    float minusDI = this._getMinusDI_()
+    float positiveDI = this._getPositiveDI_()
+    float negativeDI = this._getNegativeDI_()
     ////////////////////////////////////////////////////////////
-    float dx = _Calc_DX_(plusDI, minusDI)
+    float dx = _Calc_DX_(positiveDI, negativeDI)
     ////////////////////////////////////////////////////////////
     retValue := _Calc_DX_AVG_(dx, this._adx_smoothing_)
     ////////////////////////////////////////////////////////////
