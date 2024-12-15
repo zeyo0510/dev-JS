@@ -5,9 +5,7 @@
 
 // @function 絕對值
 export _Math_Absolute_(float _value_) =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    retValue := _value_
+    float retValue = _value_
     ////////////////////////////////////////////////////////////
     if (retValue < 00.00)
         retValue := retValue * -1

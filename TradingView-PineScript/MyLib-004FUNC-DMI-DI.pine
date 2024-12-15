@@ -3,6 +3,9 @@
 
 
 
+//      ADM      
+// DI = --- * 100
+//      ATR      
 export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
