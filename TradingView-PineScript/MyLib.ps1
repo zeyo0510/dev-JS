@@ -2,7 +2,7 @@ $source = @(
   ("MyLib-000.pine")
 , ("MyLib-001VAR.pine")
 , ("MyLib-002ENUM-CROSS.pine")
-, ("MyLib-002ENUM-POSINEGA.pine")
+, ("MyLib-002ENUM-SIGNED.pine")
 , ("MyLib-003FUNC-MATH-ABSOLUTE.pine")
 , ("MyLib-003FUNC-MATH-AVERAGE.pine")
 , ("MyLib-003FUNC-MATH-HIGHEST.pine")
@@ -52,6 +52,7 @@ if (Test-Path $target)
 }
 ##################################################
 $source | ForEach-Object {
+  Write-Host "正在處理 $_"
   Get-Content $_ -Encoding UTF8 | Add-Content $target -Encoding UTF8
 }
 ##################################################

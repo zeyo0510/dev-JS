@@ -3,9 +3,9 @@
 
 
 
-// @enum             正負數
+// @enum             有號數
 // @field _Positive_ 正數
 // @field _Negative_ 負數
-export enum _Positive_Negative_
+export enum _Signed_
     _Positive_  = "+"
     _Negative_ = "-"

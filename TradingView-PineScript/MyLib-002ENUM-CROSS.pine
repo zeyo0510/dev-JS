@@ -3,7 +3,7 @@
 
 
 
-// @enum           交叉(Cross)
+// @enum           交叉
 // @field _None_   無
 // @field _Golden_ 黃金交叉
 // @field _Death_  死亡交叉
