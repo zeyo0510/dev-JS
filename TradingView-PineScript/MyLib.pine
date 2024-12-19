@@ -25,7 +25,7 @@ float V = volume // 量
 
 
 
-// @enum           交叉(Cross)
+// @enum           交叉
 // @field _None_   無
 // @field _Golden_ 黃金交叉
 // @field _Death_  死亡交叉
@@ -126,16 +126,6 @@ export _Math_Minimum_(float _value1_, float _value2_) =>
 
 
 
-
-////////////////////////////////////////////////////////////
-//        Smoothed +DM       
-// +DI = (------------) * 100
-//        Smoothed  TR       
-////////////////////////////////////////////////////////////
-//        Smoothed -DM       
-// -DI = (------------) * 100
-//        Smoothed  TR       
-////////////////////////////////////////////////////////////
 
 export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
