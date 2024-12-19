@@ -291,6 +291,46 @@ export _Calc_RSV_(float _source_, int _length_) =>
 
 
 
+// @function 取得慢線(Slow Line)
+export _Calc_DEA_(float _dif_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Calc_EMA_(_dif_, 2, _length_)
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function               取得快線(Fast Line)
+// @param    _fast_length_ 快線天期
+// @param    _slow_length_ 慢線天期
+export _Calc_DIF_(float _source_, int _fast_length_, int _slow_length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + _Calc_EMA_(_source_, 2, _fast_length_)
+    retValue := retValue - _Calc_EMA_(_source_, 2, _slow_length_)
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function 取得訊號柱(Signal Histogram)
+export _Calc_OSC_(float _dif_, float _dea_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + _dif_
+    retValue := retValue - _dea_
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
 // @function             取得指數移動平均(Exponential Moving Average)
 // @param    _source_    系列價格
 // @param    _smoothing_ 平滑指數
@@ -346,46 +386,6 @@ export _Calc_WMA_(float _source_, int _length_) =>
         denominator := denominator + (                        (_length_ - offset) )
     //////////////////////////////////////////////////
     retValue := numerator / denominator
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function 取得慢線(Slow Line)
-export _Calc_DEA_(float _dif_, int _length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := _Calc_EMA_(_dif_, 2, _length_)
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function               取得快線(Fast Line)
-// @param    _fast_length_ 快線天期
-// @param    _slow_length_ 慢線天期
-export _Calc_DIF_(float _source_, int _fast_length_, int _slow_length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := retValue + _Calc_EMA_(_source_, 2, _fast_length_)
-    retValue := retValue - _Calc_EMA_(_source_, 2, _slow_length_)
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function 取得訊號柱(Signal Histogram)
-export _Calc_OSC_(float _dif_, float _dea_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := retValue + _dif_
-    retValue := retValue - _dea_
     //////////////////////////////////////////////////
     retValue
 
