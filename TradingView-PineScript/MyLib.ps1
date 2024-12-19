@@ -1,4 +1,4 @@
-$source = Get-Item "./MyLib-Part/MyLib*.part" | Sort
+$source = Get-Item "./MyLib-Part/*" | Sort
 ##################################################
 $target = "MyLib.pine"
 ##################################################
