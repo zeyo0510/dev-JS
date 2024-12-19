@@ -127,6 +127,94 @@ export _Math_Minimum_(float _value1_, float _value2_) =>
 
 
 
+// @function             取得指數移動平均(Exponential Moving Average)
+// @param    _source_    系列價格
+// @param    _smoothing_ 平滑指數
+// @param    _length_    計算天期
+export _Calc_EMA_(float _source_, int _smoothing_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float alpha = _smoothing_ / (_length_ + 1)
+    //////////////////////////////////////////////////
+    retValue := retValue + ( _source_ * (alpha) )
+    //////////////////////////////////////////////////
+    retValue := retValue + ( nz(retValue[1]) * (1 - alpha) )
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function          取得簡單移動平均(Simple Moving Average)
+// @param    _source_ 系列價格
+// @param    _length_ 計算天期
+export _Calc_SMA_(float _source_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float numerator   = 00.00
+    float denominator = 00.00
+    //////////////////////////////////////////////////
+    for offset = 0 to _length_ - 1
+        numerator := numerator + ( nz(_source_[offset]) )
+    //////////////////////////////////////////////////
+    denominator := _length_
+    //////////////////////////////////////////////////
+    retValue := numerator / denominator
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function          取得加權移動平均(Weighted Moving Average)
+// @param    _source_ 系列價格
+// @param    _length_ 計算天期
+export _Calc_WMA_(float _source_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float numerator   = 00.00
+    float denominator = 00.00
+    //////////////////////////////////////////////////
+    for offset = 0 to _length_ - 1
+        numerator   := numerator   + ( nz(_source_[offset]) * (_length_ - offset) )
+        denominator := denominator + (                        (_length_ - offset) )
+    //////////////////////////////////////////////////
+    retValue := numerator / denominator
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function 買量
+export BuyVolume() =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    if (H != L)
+        retValue := +(V * (C - L) / (H - L))
+    ////////////////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// @function 賣量
+export SellVolume() =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    if (H != L)
+        retValue := -(V * (H - C) / (H - L))
+    ////////////////////////////////////////////////////////////
+    retValue
+
+
+
+
+
 export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -325,94 +413,6 @@ export _Calc_OSC_(float _dif_, float _dea_) =>
     retValue := retValue + _dif_
     retValue := retValue - _dea_
     //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function             取得指數移動平均(Exponential Moving Average)
-// @param    _source_    系列價格
-// @param    _smoothing_ 平滑指數
-// @param    _length_    計算天期
-export _Calc_EMA_(float _source_, int _smoothing_, int _length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    float alpha = _smoothing_ / (_length_ + 1)
-    //////////////////////////////////////////////////
-    retValue := retValue + ( _source_ * (alpha) )
-    //////////////////////////////////////////////////
-    retValue := retValue + ( nz(retValue[1]) * (1 - alpha) )
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function          取得簡單移動平均(Simple Moving Average)
-// @param    _source_ 系列價格
-// @param    _length_ 計算天期
-export _Calc_SMA_(float _source_, int _length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    float numerator   = 00.00
-    float denominator = 00.00
-    //////////////////////////////////////////////////
-    for offset = 0 to _length_ - 1
-        numerator := numerator + ( nz(_source_[offset]) )
-    //////////////////////////////////////////////////
-    denominator := _length_
-    //////////////////////////////////////////////////
-    retValue := numerator / denominator
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function          取得加權移動平均(Weighted Moving Average)
-// @param    _source_ 系列價格
-// @param    _length_ 計算天期
-export _Calc_WMA_(float _source_, int _length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    float numerator   = 00.00
-    float denominator = 00.00
-    //////////////////////////////////////////////////
-    for offset = 0 to _length_ - 1
-        numerator   := numerator   + ( nz(_source_[offset]) * (_length_ - offset) )
-        denominator := denominator + (                        (_length_ - offset) )
-    //////////////////////////////////////////////////
-    retValue := numerator / denominator
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function 買量
-export BuyVolume() =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    if (H != L)
-        retValue := +(V * (C - L) / (H - L))
-    ////////////////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function 賣量
-export SellVolume() =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    if (H != L)
-        retValue := -(V * (H - C) / (H - L))
-    ////////////////////////////////////////////////////////////
     retValue
 
 

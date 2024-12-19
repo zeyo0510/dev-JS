@@ -7,5 +7,5 @@
 // @field _Positive_ 正數
 // @field _Negative_ 負數
 export enum _Signed_
-    _Positive_  = "+"
+    _Positive_ = "+"
     _Negative_ = "-"
