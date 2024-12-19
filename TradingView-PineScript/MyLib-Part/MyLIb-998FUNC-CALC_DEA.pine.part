@@ -3,6 +3,7 @@
 
 
 
+// MACD
 // @function 取得慢線(Slow Line)
 export _Calc_DEA_(float _dif_, int _length_) =>
     float retValue = 00.00

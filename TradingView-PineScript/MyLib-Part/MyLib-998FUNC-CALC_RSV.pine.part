@@ -3,6 +3,7 @@
 
 
 
+// KDJ
 // @function          未成熟隨機值(Raw Stochastic Value)
 // @param    _source_ 系列價格
 // @param    _length_ 計算天期

@@ -3,6 +3,7 @@
 
 
 
+// KDJ
 // @function 取得訊號線(Signal Line)
 export _Calc_J_(float _k_, float _d_) =>
     float retValue = 00.00

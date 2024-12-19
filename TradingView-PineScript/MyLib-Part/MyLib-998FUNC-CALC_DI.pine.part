@@ -3,10 +3,12 @@
 
 
 
-// @param _length_ 計算天期
-export _Calc_DM_AVG_(float _dm_, int _length_) =>
+// DMI
+export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    retValue := _Math_Average_(_dm_, _length_)
+    retValue := retValue + _adm_
+    retValue := retValue / _atr_
+    retValue := retValue * 100
     ////////////////////////////////////////////////////////////
     retValue

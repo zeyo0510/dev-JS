@@ -3,6 +3,7 @@
 
 
 
+// MACD
 // @function               取得快線(Fast Line)
 // @param    _fast_length_ 快線天期
 // @param    _slow_length_ 慢線天期

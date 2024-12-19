@@ -3,6 +3,7 @@
 
 
 
+// DMI
 // @param _length_ 計算天期
 export _Calc_TR_AVG_(float _tr_, int _length_) =>
     float retValue = 00.00

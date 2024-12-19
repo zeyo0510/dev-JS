@@ -215,6 +215,34 @@ export SellVolume() =>
 
 
 
+// KDJ
+// @function          取得慢線(Slow Line)
+// @param    _length_ 計算天期
+export _Calc_D_(float _k_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Math_Average_(_k_, _length_)
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// MACD
+// @function 取得慢線(Slow Line)
+export _Calc_DEA_(float _dif_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _Calc_EMA_(_dif_, 2, _length_)
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// DMI
 export _Calc_DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -228,6 +256,23 @@ export _Calc_DI_(float _adm_, float _atr_) =>
 
 
 
+// MACD
+// @function               取得快線(Fast Line)
+// @param    _fast_length_ 快線天期
+// @param    _slow_length_ 慢線天期
+export _Calc_DIF_(float _source_, int _fast_length_, int _slow_length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + _Calc_EMA_(_source_, 2, _fast_length_)
+    retValue := retValue - _Calc_EMA_(_source_, 2, _slow_length_)
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// DMI
 export _Calc_DM_(_Positive_Negative_ _positive_negative_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -245,6 +290,7 @@ export _Calc_DM_(_Positive_Negative_ _positive_negative_) =>
 
 
 
+// DMI
 // @param _length_ 計算天期
 export _Calc_DM_AVG_(float _dm_, int _length_) =>
     float retValue = 00.00
@@ -257,12 +303,7 @@ export _Calc_DM_AVG_(float _dm_, int _length_) =>
 
 
 
-////////////////////////////////////////////////////////////
-//       | +DI - -DI |       
-// DX = (-------------) * 100
-//       | +DI + -DI |       
-////////////////////////////////////////////////////////////
-
+// DMI
 // @function (Directional Index)
 export _Calc_DX_(float _plusDI_, float _minusDI_) =>
     float retValue = 00.00
@@ -277,6 +318,7 @@ export _Calc_DX_(float _plusDI_, float _minusDI_) =>
 
 
 
+// DMI
 // @function          (Average Directional Index)
 // @param    _length_ 計算天期
 export _Calc_DX_AVG_(float _dx_, int _length_) =>
@@ -290,53 +332,7 @@ export _Calc_DX_AVG_(float _dx_, int _length_) =>
 
 
 
-////////////////////////////////////////////////////////////
-// TR = MAX( [1], [2], [3] )
-////////////////////////////////////////////////////////////
-// [1] =   Current High - Current Low     
-// [2] = | Current High - Previous Close |
-// [3] = | Current Low  - Previous Close |
-////////////////////////////////////////////////////////////
-
-// @function 波動值(True Range)
-export _Calc_TR_() =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    retValue := _Math_Maximum_(retValue,                 H[0] -    L[0]  )
-    retValue := _Math_Maximum_(retValue, _Math_Absolute_(H[0] - nz(C[1])))
-    retValue := _Math_Maximum_(retValue, _Math_Absolute_(L[0] - nz(C[1])))
-    ////////////////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @param _length_ 計算天期
-export _Calc_TR_AVG_(float _tr_, int _length_) =>
-    float retValue = 00.00
-    ////////////////////////////////////////////////////////////
-    retValue := _Math_Average_(_tr_, _length_)
-    ////////////////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function          取得慢線(Slow Line)
-// @param    _length_ 計算天期
-export _Calc_D_(float _k_, int _length_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := _Math_Average_(_k_, _length_)
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
+// KDJ
 // @function 取得訊號線(Signal Line)
 export _Calc_J_(float _k_, float _d_) =>
     float retValue = 00.00
@@ -350,6 +346,7 @@ export _Calc_J_(float _k_, float _d_) =>
 
 
 
+// KDJ
 // @function          取得快線(Fast Line)
 // @param    _length_ 計算天期
 export _Calc_K_(float _rsv_, int _length_) =>
@@ -363,6 +360,21 @@ export _Calc_K_(float _rsv_, int _length_) =>
 
 
 
+// MACD
+// @function 取得訊號柱(Signal Histogram)
+export _Calc_OSC_(float _dif_, float _dea_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + _dif_
+    retValue := retValue - _dea_
+    //////////////////////////////////////////////////
+    retValue
+
+
+
+
+
+// KDJ
 // @function          未成熟隨機值(Raw Stochastic Value)
 // @param    _source_ 系列價格
 // @param    _length_ 計算天期
@@ -379,40 +391,28 @@ export _Calc_RSV_(float _source_, int _length_) =>
 
 
 
-// @function 取得慢線(Slow Line)
-export _Calc_DEA_(float _dif_, int _length_) =>
+// DMI
+// @function 波動值(True Range)
+export _Calc_TR_() =>
     float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := _Calc_EMA_(_dif_, 2, _length_)
-    //////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    retValue := _Math_Maximum_(retValue,                 H[0] -    L[0]  )
+    retValue := _Math_Maximum_(retValue, _Math_Absolute_(H[0] - nz(C[1])))
+    retValue := _Math_Maximum_(retValue, _Math_Absolute_(L[0] - nz(C[1])))
+    ////////////////////////////////////////////////////////////
     retValue
 
 
 
 
 
-// @function               取得快線(Fast Line)
-// @param    _fast_length_ 快線天期
-// @param    _slow_length_ 慢線天期
-export _Calc_DIF_(float _source_, int _fast_length_, int _slow_length_) =>
+// DMI
+// @param _length_ 計算天期
+export _Calc_TR_AVG_(float _tr_, int _length_) =>
     float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := retValue + _Calc_EMA_(_source_, 2, _fast_length_)
-    retValue := retValue - _Calc_EMA_(_source_, 2, _slow_length_)
-    //////////////////////////////////////////////////
-    retValue
-
-
-
-
-
-// @function 取得訊號柱(Signal Histogram)
-export _Calc_OSC_(float _dif_, float _dea_) =>
-    float retValue = 00.00
-    //////////////////////////////////////////////////
-    retValue := retValue + _dif_
-    retValue := retValue - _dea_
-    //////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    retValue := _Math_Average_(_tr_, _length_)
+    ////////////////////////////////////////////////////////////
     retValue
 
 

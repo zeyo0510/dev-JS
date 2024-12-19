@@ -3,6 +3,7 @@
 
 
 
+// DMI
 // @function          (Average Directional Index)
 // @param    _length_ 計算天期
 export _Calc_DX_AVG_(float _dx_, int _length_) =>
