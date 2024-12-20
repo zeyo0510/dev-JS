@@ -1,0 +1,13 @@
+
+
+
+
+
+// @function 最大值
+export _Maximum_(float _value1_, float _value2_) =>
+    float retValue = _value1_
+    ////////////////////////////////////////////////////////////
+    if (_value2_ > retValue)
+        retValue := _value2_
+    ////////////////////////////////////////////////////////////
+    retValue

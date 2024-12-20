@@ -1,0 +1,14 @@
+
+
+
+
+
+// DMI
+export _DI_(float _adm_, float _atr_) =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    retValue := retValue + _adm_
+    retValue := retValue / _atr_
+    retValue := retValue * 100
+    ////////////////////////////////////////////////////////////
+    retValue

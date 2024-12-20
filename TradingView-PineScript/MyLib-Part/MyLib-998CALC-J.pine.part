@@ -1,0 +1,14 @@
+
+
+
+
+
+// KDJ
+// @function 取得訊號線(Signal Line)
+export _J_(float _k_, float _d_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + (03 * _k_)
+    retValue := retValue - (02 * _d_)
+    //////////////////////////////////////////////////
+    retValue

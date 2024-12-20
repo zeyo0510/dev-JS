@@ -1,0 +1,19 @@
+
+
+
+
+
+// @function             取得指數移動平均(Exponential Moving Average)
+// @param    _source_    系列價格
+// @param    _smoothing_ 平滑指數
+// @param    _length_    計算天期
+export _EMA_(float _source_, int _smoothing_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float alpha = _smoothing_ / (_length_ + 1)
+    //////////////////////////////////////////////////
+    retValue := retValue + ( _source_ * (alpha) )
+    //////////////////////////////////////////////////
+    retValue := retValue + ( nz(retValue[1]) * (1 - alpha) )
+    //////////////////////////////////////////////////
+    retValue

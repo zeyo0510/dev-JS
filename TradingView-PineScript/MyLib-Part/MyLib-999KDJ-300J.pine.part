@@ -1,0 +1,15 @@
+
+
+
+
+
+// @function 取得訊號線(Signal Line)
+export method _getJ_(_KDJ_ this) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float k = this._getK_()
+    float d = this._getD_()
+    //////////////////////////////////////////////////
+    retValue := _J_(k, d)
+    //////////////////////////////////////////////////
+    retValue

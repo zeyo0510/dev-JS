@@ -1,0 +1,16 @@
+
+
+
+
+
+// MACD
+// @function               取得快線(Fast Line)
+// @param    _fast_length_ 快線天期
+// @param    _slow_length_ 慢線天期
+export _DIF_(float _source_, int _fast_length_, int _slow_length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + _EMA_(_source_, 2, _fast_length_)
+    retValue := retValue - _EMA_(_source_, 2, _slow_length_)
+    //////////////////////////////////////////////////
+    retValue

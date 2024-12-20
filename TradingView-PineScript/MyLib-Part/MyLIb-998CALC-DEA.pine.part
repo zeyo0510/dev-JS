@@ -1,0 +1,13 @@
+
+
+
+
+
+// MACD
+// @function 取得慢線(Slow Line)
+export _DEA_(float _dif_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := _EMA_(_dif_, 2, _length_)
+    //////////////////////////////////////////////////
+    retValue

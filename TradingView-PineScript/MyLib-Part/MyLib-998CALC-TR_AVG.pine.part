@@ -1,0 +1,13 @@
+
+
+
+
+
+// DMI
+// @param _length_ 計算天期
+export _TR_AVG_(float _tr_, int _length_) =>
+    float retValue = 00.00
+    ////////////////////////////////////////////////////////////
+    retValue := _Average_(_tr_, _length_)
+    ////////////////////////////////////////////////////////////
+    retValue

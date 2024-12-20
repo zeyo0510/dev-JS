@@ -1,0 +1,17 @@
+
+
+
+
+
+// KDJ
+// @function          未成熟隨機值(Raw Stochastic Value)
+// @param    _source_ 系列價格
+// @param    _length_ 計算天期
+export _RSV_(float _source_, int _length_) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    retValue := retValue + (_source_                - ta.lowest(L, _length_))
+    retValue := retValue / (ta.highest(H, _length_) - ta.lowest(L, _length_))
+    retValue := retValue * 100
+    //////////////////////////////////////////////////
+    retValue

@@ -1,0 +1,14 @@
+
+
+
+
+
+// @function 取得慢線(Slow Line)
+export method _getDEA_(_MACD_ this) =>
+    float retValue = 00.00
+    //////////////////////////////////////////////////
+    float dif = this._getDIF_()
+    //////////////////////////////////////////////////
+    retValue := _DEA_(dif, this._signal_length_)
+    //////////////////////////////////////////////////
+    retValue
