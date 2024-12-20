@@ -4,7 +4,9 @@
 
 
 // MACD
-// @function 取得訊號柱(Signal Histogram)
+// @function       取得訊號柱(Signal Histogram)
+// @param    _dif_ XXX
+// @param    _dea_ XXX
 export _OSC_(float _dif_, float _dea_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////

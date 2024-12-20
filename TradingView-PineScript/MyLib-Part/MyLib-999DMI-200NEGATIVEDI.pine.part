@@ -3,6 +3,7 @@
 
 
 
+// @function XXX
 export method _getNegativeDI_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

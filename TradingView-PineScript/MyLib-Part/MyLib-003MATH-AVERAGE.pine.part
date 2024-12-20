@@ -3,7 +3,9 @@
 
 
 
-// @function 平均值
+// @function          平均值
+// @param    _value_  XXX
+// @param    _length_ XXX
 export _Average_(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

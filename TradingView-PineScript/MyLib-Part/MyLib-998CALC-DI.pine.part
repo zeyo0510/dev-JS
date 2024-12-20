@@ -4,6 +4,9 @@
 
 
 // DMI
+// @function       XXX
+// @param    _adm_ XXX
+// @param    _atr_ XXX
 export _DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

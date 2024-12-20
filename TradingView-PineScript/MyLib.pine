@@ -49,7 +49,8 @@ export enum _Signed_
 
 
 
-// @function 絕對值
+// @function         絕對值
+// @param    _value_ XXX
 export _Absolute_(float _value_) =>
     float retValue = _value_
     ////////////////////////////////////////////////////////////
@@ -62,7 +63,9 @@ export _Absolute_(float _value_) =>
 
 
 
-// @function 平均值
+// @function          平均值
+// @param    _value_  XXX
+// @param    _length_ XXX
 export _Average_(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -75,6 +78,9 @@ export _Average_(float _value_, int _length_) =>
 
 
 
+// @function          XXX
+// @param    _value_  XXX
+// @param    _length_ XXX
 export _Highest(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -88,6 +94,9 @@ export _Highest(float _value_, int _length_) =>
 
 
 
+// @function          XXX
+// @param    _value_  XXX
+// @param    _length_ XXX
 export _Lowest(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -101,7 +110,9 @@ export _Lowest(float _value_, int _length_) =>
 
 
 
-// @function 最大值
+// @function          最大值
+// @param    _value1_ XXX
+// @param    _value2_ XXX
 export _Maximum_(float _value1_, float _value2_) =>
     float retValue = _value1_
     ////////////////////////////////////////////////////////////
@@ -114,7 +125,9 @@ export _Maximum_(float _value1_, float _value2_) =>
 
 
 
-// @function 最小值
+// @function          最小值
+// @param    _value1_ XXX
+// @param    _value2_ XXX
 export _Minimum_(float _value1_, float _value2_) =>
     float retValue = _value1_
     ////////////////////////////////////////////////////////////
@@ -217,6 +230,7 @@ export SellVolume() =>
 
 // KDJ
 // @function          取得慢線(Slow Line)
+// @param    _k_      XXX
 // @param    _length_ 計算天期
 export _D_(float _k_, int _length_) =>
     float retValue = 00.00
@@ -230,7 +244,9 @@ export _D_(float _k_, int _length_) =>
 
 
 // MACD
-// @function 取得慢線(Slow Line)
+// @function          取得慢線(Slow Line)
+// @param    _dif_    XXX
+// @param    _length_ 計算天期
 export _DEA_(float _dif_, int _length_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////
@@ -243,6 +259,9 @@ export _DEA_(float _dif_, int _length_) =>
 
 
 // DMI
+// @function       XXX
+// @param    _adm_ XXX
+// @param    _atr_ XXX
 export _DI_(float _adm_, float _atr_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -258,6 +277,7 @@ export _DI_(float _adm_, float _atr_) =>
 
 // MACD
 // @function               取得快線(Fast Line)
+// @param    _source_      XXX
 // @param    _fast_length_ 快線天期
 // @param    _slow_length_ 慢線天期
 export _DIF_(float _source_, int _fast_length_, int _slow_length_) =>
@@ -273,6 +293,8 @@ export _DIF_(float _source_, int _fast_length_, int _slow_length_) =>
 
 
 // DMI
+// @function          XXX
+// @param    _signed_ XXX
 export _DM_(_Signed_ _signed_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -291,7 +313,9 @@ export _DM_(_Signed_ _signed_) =>
 
 
 // DMI
-// @param _length_ 計算天期
+// @function          XXX
+// @param    _dm_     XXX
+// @param    _length_ 計算天期
 export _DM_AVG_(float _dm_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -304,12 +328,14 @@ export _DM_AVG_(float _dm_, int _length_) =>
 
 
 // DMI
-// @function (Directional Index)
-export _DX_(float _plusDI_, float _minusDI_) =>
+// @function              (Directional Index)
+// @param    _positiveDI_ XXX
+// @param    _negativeDI_ XXX
+export _DX_(float _positiveDI_, float _negativeDI_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    retValue := retValue + _Absolute_(_plusDI_ - _minusDI_)
-    retValue := retValue / _Absolute_(_plusDI_ + _minusDI_)
+    retValue := retValue + _Absolute_(_positiveDI_ - _negativeDI_)
+    retValue := retValue / _Absolute_(_positiveDI_ + _negativeDI_)
     retValue := retValue * 100
     ////////////////////////////////////////////////////////////
     retValue
@@ -320,6 +346,7 @@ export _DX_(float _plusDI_, float _minusDI_) =>
 
 // DMI
 // @function          (Average Directional Index)
+// @param    _dx_     XXX
 // @param    _length_ 計算天期
 export _DX_AVG_(float _dx_, int _length_) =>
     float retValue = 00.00
@@ -333,7 +360,9 @@ export _DX_AVG_(float _dx_, int _length_) =>
 
 
 // KDJ
-// @function 取得訊號線(Signal Line)
+// @function     取得訊號線(Signal Line)
+// @param    _k_ XXX
+// @param    _d_ XXX
 export _J_(float _k_, float _d_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////
@@ -348,6 +377,7 @@ export _J_(float _k_, float _d_) =>
 
 // KDJ
 // @function          取得快線(Fast Line)
+// @param    _rsv_    XXX
 // @param    _length_ 計算天期
 export _K_(float _rsv_, int _length_) =>
     float retValue = 00.00
@@ -361,7 +391,9 @@ export _K_(float _rsv_, int _length_) =>
 
 
 // MACD
-// @function 取得訊號柱(Signal Histogram)
+// @function       取得訊號柱(Signal Histogram)
+// @param    _dif_ XXX
+// @param    _dea_ XXX
 export _OSC_(float _dif_, float _dea_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////
@@ -407,7 +439,9 @@ export _TR_() =>
 
 
 // DMI
-// @param _length_ 計算天期
+// @function          XXX
+// @param    _tr_     XXX
+// @param    _length_ 計算天期
 export _TR_AVG_(float _tr_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -430,6 +464,7 @@ export type _DMI_
 
 
 
+// @function XXX
 export method _getPositiveDI_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -447,6 +482,7 @@ export method _getPositiveDI_(_DMI_ this) =>
 
 
 
+// @function XXX
 export method _getNegativeDI_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -464,6 +500,7 @@ export method _getNegativeDI_(_DMI_ this) =>
 
 
 
+// @function XXX
 export method _getADX_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

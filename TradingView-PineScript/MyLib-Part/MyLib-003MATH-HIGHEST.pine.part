@@ -3,6 +3,9 @@
 
 
 
+// @function          XXX
+// @param    _value_  XXX
+// @param    _length_ XXX
 export _Highest(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

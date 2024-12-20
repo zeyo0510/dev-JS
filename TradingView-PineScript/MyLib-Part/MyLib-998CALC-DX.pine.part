@@ -4,12 +4,14 @@
 
 
 // DMI
-// @function (Directional Index)
-export _DX_(float _plusDI_, float _minusDI_) =>
+// @function              (Directional Index)
+// @param    _positiveDI_ XXX
+// @param    _negativeDI_ XXX
+export _DX_(float _positiveDI_, float _negativeDI_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    retValue := retValue + _Absolute_(_plusDI_ - _minusDI_)
-    retValue := retValue / _Absolute_(_plusDI_ + _minusDI_)
+    retValue := retValue + _Absolute_(_positiveDI_ - _negativeDI_)
+    retValue := retValue / _Absolute_(_positiveDI_ + _negativeDI_)
     retValue := retValue * 100
     ////////////////////////////////////////////////////////////
     retValue

@@ -3,7 +3,9 @@
 
 
 
-// @function 最大值
+// @function          最大值
+// @param    _value1_ XXX
+// @param    _value2_ XXX
 export _Maximum_(float _value1_, float _value2_) =>
     float retValue = _value1_
     ////////////////////////////////////////////////////////////

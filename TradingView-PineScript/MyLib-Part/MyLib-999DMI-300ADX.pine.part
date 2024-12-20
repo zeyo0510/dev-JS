@@ -3,6 +3,7 @@
 
 
 
+// @function XXX
 export method _getADX_(_DMI_ this) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

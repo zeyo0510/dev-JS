@@ -4,6 +4,8 @@
 
 
 // DMI
+// @function          XXX
+// @param    _signed_ XXX
 export _DM_(_Signed_ _signed_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

@@ -3,7 +3,8 @@
 
 
 
-// @function 絕對值
+// @function         絕對值
+// @param    _value_ XXX
 export _Absolute_(float _value_) =>
     float retValue = _value_
     ////////////////////////////////////////////////////////////

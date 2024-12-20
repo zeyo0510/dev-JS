@@ -4,7 +4,9 @@
 
 
 // MACD
-// @function 取得慢線(Slow Line)
+// @function          取得慢線(Slow Line)
+// @param    _dif_    XXX
+// @param    _length_ 計算天期
 export _DEA_(float _dif_, int _length_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////

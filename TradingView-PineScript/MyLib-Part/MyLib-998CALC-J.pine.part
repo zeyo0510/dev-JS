@@ -4,7 +4,9 @@
 
 
 // KDJ
-// @function 取得訊號線(Signal Line)
+// @function     取得訊號線(Signal Line)
+// @param    _k_ XXX
+// @param    _d_ XXX
 export _J_(float _k_, float _d_) =>
     float retValue = 00.00
     //////////////////////////////////////////////////

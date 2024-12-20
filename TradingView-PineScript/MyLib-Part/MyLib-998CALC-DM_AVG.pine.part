@@ -4,7 +4,9 @@
 
 
 // DMI
-// @param _length_ 計算天期
+// @function          XXX
+// @param    _dm_     XXX
+// @param    _length_ 計算天期
 export _DM_AVG_(float _dm_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
