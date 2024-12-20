@@ -8,7 +8,7 @@
 export _TR_() =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    retValue := _Maximum_(retValue,                 H[0] -    L[0]  )
+    retValue := _Maximum_(retValue,            H[0] -    L[0]  )
     retValue := _Maximum_(retValue, _Absolute_(H[0] - nz(C[1])))
     retValue := _Maximum_(retValue, _Absolute_(L[0] - nz(C[1])))
     ////////////////////////////////////////////////////////////

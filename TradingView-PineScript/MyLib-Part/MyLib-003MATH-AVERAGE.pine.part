@@ -5,7 +5,7 @@
 
 // @function          平均值
 // @param    _value_  XXX
-// @param    _length_ XXX
+// @param    _length_ 計算天期
 export _Average_(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////

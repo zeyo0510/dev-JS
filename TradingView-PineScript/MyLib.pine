@@ -65,7 +65,7 @@ export _Absolute_(float _value_) =>
 
 // @function          平均值
 // @param    _value_  XXX
-// @param    _length_ XXX
+// @param    _length_ 計算天期
 export _Average_(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -80,7 +80,7 @@ export _Average_(float _value_, int _length_) =>
 
 // @function          XXX
 // @param    _value_  XXX
-// @param    _length_ XXX
+// @param    _length_ 計算天期
 export _Highest(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -96,7 +96,7 @@ export _Highest(float _value_, int _length_) =>
 
 // @function          XXX
 // @param    _value_  XXX
-// @param    _length_ XXX
+// @param    _length_ 計算天期
 export _Lowest(float _value_, int _length_) =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
@@ -277,7 +277,7 @@ export _DI_(float _adm_, float _atr_) =>
 
 // MACD
 // @function               取得快線(Fast Line)
-// @param    _source_      XXX
+// @param    _source_      系列價格
 // @param    _fast_length_ 快線天期
 // @param    _slow_length_ 慢線天期
 export _DIF_(float _source_, int _fast_length_, int _slow_length_) =>
@@ -428,7 +428,7 @@ export _RSV_(float _source_, int _length_) =>
 export _TR_() =>
     float retValue = 00.00
     ////////////////////////////////////////////////////////////
-    retValue := _Maximum_(retValue,                 H[0] -    L[0]  )
+    retValue := _Maximum_(retValue,            H[0] -    L[0]  )
     retValue := _Maximum_(retValue, _Absolute_(H[0] - nz(C[1])))
     retValue := _Maximum_(retValue, _Absolute_(L[0] - nz(C[1])))
     ////////////////////////////////////////////////////////////
